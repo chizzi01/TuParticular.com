@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <App />
     <Navbar />
-    <Login />
+    {/* <Login /> */}
   </React.StrictMode>
 );
 
