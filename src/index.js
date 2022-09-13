@@ -5,14 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Navbar from './Components/Navbar/Navbar';
 import Login from './Components/Login/Login';
-import Searchbar from './Components/Searchbar/Searchbar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
     <Navbar />
-    <Searchbar />
+    <App />
     {/* <Login /> */}
   </React.StrictMode>
 );
