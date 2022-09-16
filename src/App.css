@@ -51,8 +51,11 @@ video {
 
 h1{
   white-space: nowrap;
-  font-size: 2rem;
-  position: absolute;
+  font-size: 5rem;
+  position:absolute;
+  top:15%;
+  left:5%;
+  z-index:1;
   text-align: left;
   color: #fff;
   letter-spacing: 8px;
