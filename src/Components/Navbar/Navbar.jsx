@@ -13,9 +13,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Link } from 'react-router-dom';
 
-const pages = ['Inicio', 'Clases', 'Contacto'];
-const settings = ['Perfil', 'Cerrar Sesion'];
+const pages = ['Inicio', 'Clases', 'Login'];
+const settings = ['Mi Perfil', 'Cerrar Sesion'];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -41,7 +42,7 @@ const Navbar = () => {
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <img src={logoNav} id='imgDesk' />
+            <img src={logoNav} id='imgDesk' className='imageDesign' />
             <Typography
               variant="h6"
               noWrap
@@ -92,11 +93,17 @@ const Navbar = () => {
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
+                    <Link
+                      style={{ textDecoration: 'none', color: 'white ' }}
+                      to={`/${page}`}
+                      >
+                      {page}
+                    </Link>
                   </MenuItem>
                 ))}
               </Menu>
             </Box>
-            <img src={logoNav} alt="" id='imgRes' />
+            <img src={logoNav} alt="" id='imgRes' className='imageDesign'/>
             <Typography
               variant="h5"
               noWrap
@@ -122,13 +129,15 @@ const Navbar = () => {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block', fontFamily: 'Amaranth', fontWeight: 700, letterSpacing: '.1rem' }}
                 >
-                  {page}
+                  <Link to={`/${page}`}>
+                    {page}
+                  </Link>
                 </Button>
               ))}
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
+              <Tooltip title="Perfil">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <AccountCircleIcon sx={{ color: "white", fontSize: '35px' }} />
                 </IconButton>

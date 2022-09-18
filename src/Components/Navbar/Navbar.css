@@ -12,6 +12,11 @@
     font-family: 'Amaranth', sans-serif;
 }
 
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
 ul {
     display: flex;
     flex-direction: row;
@@ -30,7 +35,7 @@ li {
 }
 
 
-img {
+.imageDesign {
     margin-right: 10px;
     padding: 2px;
     width: 50px;

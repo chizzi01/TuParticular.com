@@ -1,24 +1,21 @@
-import './App.css';
 import React from 'react';
-import video from './img/study.mp4';
+import Clases from './Components/Clases/Clases';
+import { Routes, Route } from 'react-router-dom';
+import Inicio from './Components/Inicio/Inicio';
+import Login from './Components/Login/Login';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
-
     <div className="App">
-      <header className="App-header">
-      </header>
-      <div className='inicio-container'>
-      <h1>Encontrá las <br /> mejores clases <br /> particulares</h1>
-      <video src={video} muted autoPlay loop playsInline></video>
-      
-      <div className='container-box'>
-      <div className='green-box'>
-        <h2>Desde primaria <br /> hasta la <br /> universidad</h2>
-        <p>Buscá tus clases acá</p>
-      </div>
-      </div>
-      </div>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Inicio />} />
+        <Route path="/Inicio" element={<Inicio />} />
+        <Route path="/Clases" element={<Clases />} />
+        <Route path="/Login" element={<Login />} />
+
+      </Routes>
     </div>
   );
 }
