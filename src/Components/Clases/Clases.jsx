@@ -1,10 +1,13 @@
 import React from 'react';
 import './Clases.css';
+import Searchbar from '../Searchbar/Searchbar';
 
 function Clases() {
   return (
     <div className="Clases">
-      <h1>Clases</h1>
+      <div className='searchbar-container'>
+      <Searchbar/>
+      </div>
     </div>
   );
 }

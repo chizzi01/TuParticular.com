@@ -18,6 +18,7 @@ import { Link } from 'react-router-dom';
 const pages = ['Inicio', 'Clases', 'Login'];
 const settings = ['Mi Perfil', 'Cerrar Sesion'];
 
+
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);

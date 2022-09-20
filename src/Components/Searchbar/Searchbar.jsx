@@ -16,6 +16,7 @@ export default function DialogSelect() {
   const [open, setOpen] = React.useState(false);
   const [cla, setClase] = React.useState('');
   const [fre, setFrecuencia] = React.useState('');
+  const [rat, setRating] = React.useState('');
 
   const handleChangeCla = (event) => {
     setClase(Number(event.target.value) || '');
@@ -24,6 +25,11 @@ export default function DialogSelect() {
   const handleChangeFre = (event) => {
     setFrecuencia(Number(event.target.value) || '');
   };
+
+  const handleChangeRat = (event) => {
+    setRating(Number(event.target.value) || '');
+  };
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -53,10 +59,10 @@ export default function DialogSelect() {
                 input={<OutlinedInput label="Clase" />}
               >
                 <MenuItem value="">
-                  <em>None</em>
+                  <em>Ninguno</em>
                 </MenuItem>
-                <MenuItem value={10}>Individual</MenuItem>
-                <MenuItem value={20}>Grupal</MenuItem>
+                <MenuItem value={"Individual"}>Individual</MenuItem>
+                <MenuItem value={"Grupal"}>Grupal</MenuItem>
               </Select>
             </FormControl>
             <FormControl sx={{ m: 1, minWidth: 120 }}>
@@ -69,11 +75,30 @@ export default function DialogSelect() {
                 input={<OutlinedInput label="Frecuencia" />}
               >
                 <MenuItem value="">
-                  <em>None</em>
+                  <em>Ninguna</em>
                 </MenuItem>
-                <MenuItem value={10}>Unica</MenuItem>
-                <MenuItem value={20}>Semanal</MenuItem>
-                <MenuItem value={30}>Mensual</MenuItem>
+                <MenuItem value={"Unica"}>Unica</MenuItem>
+                <MenuItem value={"Semanal"}>Semanal</MenuItem>
+                <MenuItem value={"Mensual"}>Mensual</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl sx={{ m: 1, minWidth: 120 }}>
+              <InputLabel id="demo-dialog-select-label">Calificación</InputLabel>
+              <Select
+                labelId="demo-dialog-select-label"
+                id="demo-dialog-select"
+                value={rat}
+                onChange={handleChangeRat}
+                input={<OutlinedInput label="Clase" />}
+              >
+                <MenuItem value="">
+                  <em>0</em>
+                </MenuItem>
+                <MenuItem value={1}>1</MenuItem>
+                <MenuItem value={2}>2</MenuItem>
+                <MenuItem value={3}>3</MenuItem>
+                <MenuItem value={4}>4</MenuItem>
+                <MenuItem value={5}>5</MenuItem>
               </Select>
             </FormControl>
           </Box>
