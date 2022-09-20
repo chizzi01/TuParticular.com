@@ -14,6 +14,7 @@ function App() {
         <Route path="/Inicio" element={<Inicio />} />
         <Route path="/Clases" element={<Clases />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/Mi Perfil" element={<Inicio />} />
 
       </Routes>
     </div>
