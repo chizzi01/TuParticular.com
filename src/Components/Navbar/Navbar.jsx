@@ -15,7 +15,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
 
-const pages = ['Inicio', 'Clases', 'Login'];
+const pages = ['Inicio', 'Clases', 'Contacto'];
 const settings = ['Mi Perfil', 'Cerrar Sesion'];
 
 

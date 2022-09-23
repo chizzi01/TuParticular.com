@@ -43,7 +43,7 @@ export default function DialogSelect() {
 
   return (
     <div>
-        <input type="text" placeholder='Materia'/>
+        <input className='text-input' type="text" placeholder='Materia'/>
       <Button onClick={handleClickOpen}>Filtrar por</Button>
       <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
         <DialogTitle>Filtros</DialogTitle>
