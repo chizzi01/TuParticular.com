@@ -7,6 +7,11 @@ function Clases() {
     <div className="Clases">
       <div className='searchbar-container'>
       <Searchbar/>
+      <Card_fisica></Card_fisica>
+      <Card_quimica></Card_quimica>
+      <Card_historia></Card_historia>
+      <Card_literatura></Card_literatura>
+      <Card_matematica></Card_matematica>
       </div>
     </div>
   );
