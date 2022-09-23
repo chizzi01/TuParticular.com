@@ -12,4 +12,5 @@ function Clases() {
   );
 }
 
+
 export default Clases;
