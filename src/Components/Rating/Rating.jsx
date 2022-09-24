@@ -46,7 +46,7 @@ IconContainer.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-export default function RadioGroupRating() {
+export default function RatingCard() {
   return (
     <StyledRating
       name="highlight-selected-only"
