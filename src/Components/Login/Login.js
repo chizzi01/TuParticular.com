@@ -13,7 +13,7 @@ function Login() {
             <h1>Iniciar Sesión</h1>
             <form>
                 <div className='loginForm'>
-                    <input type='text' placeholder='Usuario' required />
+                    <input type='email' placeholder='Mail' required />
                     <input type='password' placeholder='Contraseña' required />
                     <input type='submit' value='Iniciar Sesión' />
                     <label htmlFor="">O</label>

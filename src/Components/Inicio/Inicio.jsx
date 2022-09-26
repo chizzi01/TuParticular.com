@@ -14,7 +14,7 @@ function Inicio() {
             <div className='container-box'>
                 <div className='green-box'>
                     <h2>Desde primaria <br /> hasta la <br /> universidad</h2>
-                    <p>Buscá tus clases acá</p>
+                    <a href="Clases"><p className='p-clases'>Buscá tus clases acá</p></a>
                 </div>
             </div>
         </div>

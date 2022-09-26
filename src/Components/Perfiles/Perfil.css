@@ -1,0 +1,66 @@
+
+.perfil-align {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    width: 250px;
+}
+
+textarea{
+    resize: none;
+    border-radius: 12px;
+    border: 2px solid #0071BC;
+    font-family: 'Sora', sans-serif;
+    margin-top: 20px;
+}
+
+.alumno{
+    margin-top: 50px;
+    background-image: -webkit-linear-gradient(top, rgba(60, 138, 255, 0.562), rgba(0, 0, 0, 0.897)), url("../../../src/img/estudiantes.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+input[type="submit"]{
+    border: 2px solid #47AE6A;
+    background-color: #47AE6A;
+}
+
+input[type="submit"]:hover{
+    background-color: #45e58d;
+    border: #45e58d;
+}
+
+input[type="date"]{
+    border-radius: 6px;
+    border: 2px solid #0071BC;
+}
+
+.alumno h1{
+    font-family: 'Sora', sans-serif;
+    font-size: 40px;
+    color: #fff;
+    padding-top: 100px;
+}
+
+.profesor{
+    margin-top: 50px;
+    background-image: -webkit-linear-gradient(top, rgba(60, 138, 255, 0.562), rgba(0, 0, 0, 0.897)),url("../../../src/img/profesor.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+.profesor h1{
+    font-family: 'Sora', sans-serif;
+    font-size: 40px;
+    color: #fff;
+    padding-top: 100px;
+}

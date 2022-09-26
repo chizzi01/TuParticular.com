@@ -5,7 +5,9 @@ import Inicio from './Components/Inicio/Inicio';
 import Login from './Components/Login/Login';
 import Navbar from './Components/Navbar/Navbar';
 import Register from './Components/Register/Register';
-// import Footer from './Components/Footer/Footer';
+import Footer from './Components/Footer/Footer';
+import PerfilAlumno from './Components/Perfiles/PerfilAlumno';
+import PerfilProfesor from './Components/Perfiles/PerfilProfesor';
 
 function App() {
   return (
@@ -17,8 +19,10 @@ function App() {
         <Route path="/Clases" element={<Clases />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Registrarse" element={<Register />} />
+        <Route path="/Profesor" element={<PerfilProfesor/>}/>
+        <Route path="/Alumno" element={<PerfilAlumno />} />
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 }

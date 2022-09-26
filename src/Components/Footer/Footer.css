@@ -1,0 +1,28 @@
+.Footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.footer-align{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-align p{
+    font-family: 'Amaranth', sans-serif;
+    font-size: 20px;
+}
+
+.footer-align h1{
+    font-family: 'Amaranth', sans-serif;
+    margin-top: 20px;
+}
+
+footer{
+    padding-top: 20px;
+    background-color: #1976D2;
+    color: #fff;
+    text-align: center;
+    height: 150px;
+}

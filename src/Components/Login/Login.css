@@ -51,8 +51,6 @@ input[type="submit"] {
     border: 2px solid #0071BC;
     background-color: #0071BC;
     border-radius: 12px;
-    /* padding-left: 10px;
-    margin-left: 6px; */
     font-size: 14px;
     color: rgb(255, 255, 255);
     margin-top: 10px;
@@ -64,8 +62,6 @@ input[type="button"] {
     border: 2px solid #47AE6A;
     background-color: #47AE6A;
     border-radius: 12px;
-    /* padding-left: 10px;
-    margin-left: 6px; */
     font-size: 14px;
     color: rgb(255, 255, 255);
     margin-top: 10px;

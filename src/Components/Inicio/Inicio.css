@@ -63,7 +63,7 @@
     margin-top: 70px;
   }
   
-  p{
+  .p-clases{
     font-family: 'Amaranth', sans-serif;
     font-size: 20px;
     text-align: left;
@@ -71,7 +71,7 @@
     margin-left: 50px;
   }
   
-  p:hover{
+  .p-clases:hover{
     cursor: pointer;
     color: #297dd1;
   }

@@ -17,6 +17,12 @@ function Register() {
                     <input type='text' placeholder='Apellido' required />
                     <input type='email' placeholder='Correo' required />
                     <input type="number" placeholder='Telefono' required />
+                    <input type="number" placeholder='Edad' required/>
+                    <select name="rol" id="rol">
+                        <option value="Rol">Rol</option>
+                        <option value="Profesor">Profesor</option>
+                        <option value="Alumno">Alumno</option>
+                    </select>
                     <input type='password' placeholder='Contraseña' required />
                     <input type='submit' value='Registrarse' />
                 </div>
