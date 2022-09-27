@@ -29,13 +29,18 @@ h1 {
     height: 150px;
     display: block;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 40px;
     margin-bottom: 0%;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 input[type="text"],
-input[type="password"] {
+input[type="password"], input[type="email"], input[type="number"], select {
     height: 30px;
     border: 2px solid #0071BC;
     border-radius: 12px;
@@ -57,7 +62,6 @@ input[type="submit"] {
     cursor: pointer;
     font-family: 'Sora', sans-serif;
 }
-
 input[type="button"] {
     height: 25px;
     border: 2px solid #47AE6A;
@@ -67,16 +71,15 @@ input[type="button"] {
     color: rgb(255, 255, 255);
     margin-top: 10px;
     cursor: pointer;
-    width: 250px;
     font-family: 'Sora', sans-serif;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover{
     background-color: #45B0E5;
     border: #45B0E5;
 }
 
-input[type="button"]:hover {
+input[type="button"]:hover{
     background-color: #45e58d;
     border: #45e58d;
 }
@@ -96,15 +99,4 @@ label {
     justify-content: center;
     margin: auto;
     width: 250px;
-}
-
-.olvido {
-    text-align: left;
-    font-size: 14px;
-    margin-left: 5px;
-    margin-bottom: 10px;
-}
-
-.olvido:hover {
-    color: #45B0E5;
 }

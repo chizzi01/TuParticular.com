@@ -1,0 +1,9 @@
+.contratar-button input[type="button"] {
+    background-color: #0071BC;
+    border-color: #0071BC;
+}
+
+.contratar-button input[type="button"]:hover {
+    background-color: #0a8adf;
+    border-color: #0a8adf;
+}

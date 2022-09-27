@@ -12,6 +12,7 @@ import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import RatingCard from '../Rating/Rating';
+import './Card.css'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -66,6 +67,9 @@ export default function CardClases() {
           Costo: ${costo}
         </Typography>
         <br />
+        <div className='contratar-button'>
+        <a href="/Contratar"><input type="button" value="Contratar" /></a>
+        </div>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="Calificacion">

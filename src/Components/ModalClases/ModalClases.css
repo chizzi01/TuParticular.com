@@ -1,0 +1,27 @@
+#crear-claseBTN{
+    margin-top: 10px;
+    background-color: #47AE6A;
+    color: aliceblue;
+    border-radius: 60px;
+    margin-left: 10px;
+}
+
+#crear-claseBTN:hover{
+    background-color: #45e58d;
+
+}
+
+
+.crearClase input[type="submit"]{
+background-color: #47AE6A;
+}
+
+ h3{
+    margin-left: 10px;
+    color: aliceblue;
+    font-family: 'Sora', sans-serif;
+}
+
+#ColorBack{
+    background-color: #0071BC;
+}

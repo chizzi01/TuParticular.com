@@ -12,6 +12,15 @@ function Inicio() {
                 <video className='inicio-video' src={video} muted autoPlay loop playsInline></video>
             </div>
             <div className='container-box'>
+                <div className='white-box'>
+                    <h2>Más de 1000 clases <br /> y 200 profesores</h2>
+                    <div className='white-box-align'>
+                    <label htmlFor="">No tenes cuenta?</label>
+                    <a href="/Registrarse"><input type="button" value="Registrate" /></a>
+                    <label htmlFor="">o</label>
+                    <a href="/Login"><input type="button" value="Ingresa" /></a>
+                    </div>
+                </div>
                 <div className='green-box'>
                     <h2>Desde primaria <br /> hasta la <br /> universidad</h2>
                     <a href="Clases"><p className='p-clases'>Buscá tus clases acá</p></a>

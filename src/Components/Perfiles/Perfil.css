@@ -39,6 +39,7 @@ input[type="submit"]:hover{
 input[type="date"]{
     border-radius: 6px;
     border: 2px solid #0071BC;
+    font-family: 'Sora', sans-serif;
 }
 
 .alumno h1{
@@ -63,4 +64,15 @@ input[type="date"]{
     font-size: 40px;
     color: #fff;
     padding-top: 100px;
+}
+
+.perfil-align label{
+    text-align: left;
+}
+
+.progreso{
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    font-family: 'Sora', sans-serif;
 }

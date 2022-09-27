@@ -8,6 +8,8 @@ import Register from './Components/Register/Register';
 import Footer from './Components/Footer/Footer';
 import PerfilAlumno from './Components/Perfiles/PerfilAlumno';
 import PerfilProfesor from './Components/Perfiles/PerfilProfesor';
+import Recupero from './Components/Recupero/Recupero';
+import Contratar from './Components/Contratar/Contratar';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/Registrarse" element={<Register />} />
         <Route path="/Profesor" element={<PerfilProfesor/>}/>
         <Route path="/Alumno" element={<PerfilAlumno />} />
+        <Route path="/Recupero" element={<Recupero />} />
+        <Route path="/Contratar" element={<Contratar />} />
       </Routes>
       <Footer/>
     </div>

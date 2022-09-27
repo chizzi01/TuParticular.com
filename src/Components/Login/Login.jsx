@@ -15,9 +15,10 @@ function Login() {
                 <div className='loginForm'>
                     <input type='email' placeholder='Mail' required />
                     <input type='password' placeholder='Contraseña' required />
+                    <a className='olvido' href="Recupero">Olvidé mi contraseña</a>
                     <input type='submit' value='Iniciar Sesión' />
                     <label htmlFor="">O</label>
-                    <input type='button' value='Registrarse' />
+                    <a href="Registrarse"><input type='button' value='Registrarse' /></a>
                 </div>
             </form>
 
