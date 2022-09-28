@@ -17,6 +17,10 @@ a {
     text-decoration: none;
 }
 
+.ColorA{
+    color: rgb(26, 26, 26);
+}
+
 ul {
     display: flex;
     flex-direction: row;

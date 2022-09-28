@@ -46,7 +46,7 @@ input[type="date"]{
     font-family: 'Sora', sans-serif;
     font-size: 40px;
     color: #fff;
-    padding-top: 100px;
+    padding-top: 60px;
 }
 
 .profesor{
@@ -75,4 +75,17 @@ input[type="date"]{
     flex-direction: row;
     color: #fff;
     font-family: 'Sora', sans-serif;
+}
+
+.MisClasesBackNav input[type="button"]{
+background-color: #45e58d;
+border: #45e58d;
+width: 100%;
+font-size: 25px;
+font-family: 'Sora', sans-serif;
+height: 80px;
+}
+
+.MisClasesBackNav{
+    width: 100%;
 }

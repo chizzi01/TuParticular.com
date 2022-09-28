@@ -4,6 +4,9 @@ import './Perfil.css'
 function PerfilAlumno() {
     return (
         <div className='alumno'>
+            <div className='MisClasesBackNav'>
+            <a href="MisClasesAlumno" ><input id='MisClasesButton' type="button" value="Mis Clases" /></a>
+            </div>
             <h1>Mi Perfil</h1>
             <form>
                 <div className='perfil-align'>

@@ -16,7 +16,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
 
 const pages = ['Inicio', 'Clases', 'Contacto'];
-const settings = ['Mi Perfil', 'Cerrar Sesion'];
 
 
 const Navbar = () => {
@@ -159,11 +158,12 @@ const Navbar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <a className='ColorA' href="Alumno"><Typography textAlign="center">Mi perfil</Typography></a>
                   </MenuItem>
-                ))}
+                  <MenuItem onClick={handleCloseUserMenu}>
+                  <a className='ColorA'><Typography textAlign="center">Cerrar Sesion</Typography></a>
+                  </MenuItem>
               </Menu>
             </Box>
           </Toolbar>

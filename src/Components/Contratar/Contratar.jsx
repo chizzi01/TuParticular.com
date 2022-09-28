@@ -1,13 +1,13 @@
 import React from 'react';
 import './Contratar.css'
-import medicina from '../../img/medicina.mp4';
+import contratar from '../../img/contratar.jpg';
 import logo from '../../img/Tu Particular2.png';
 let materia= ""
 
 function Recupero() {
     return (
         <div className='login'>
-            <video className='login-video' src={medicina} muted autoPlay loop></video>
+            <img className='login-video' src={contratar} alt="" />
             <div className='logoCenter'>
                 <img src={logo} alt="Tu particular" srcset="" />
             </div>
