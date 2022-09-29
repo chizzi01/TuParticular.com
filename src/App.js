@@ -12,6 +12,7 @@ import Recupero from './Components/Recupero/Recupero';
 import Contratar from './Components/Contratar/Contratar';
 import MisClasesAlumno from './Components/MisClases/MisClasesAlumno';
 import MisClasesProfesor from './Components/MisClases/MisClasesProfesor';
+import AprobarClases from './Components/Clases/AprobarClases';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/Contratar" element={<Contratar />} />
         <Route path="/MisClasesAlumno" element={<MisClasesAlumno />} />
         <Route path="/MisClasesProfesor" element={<MisClasesProfesor />} />
+        <Route path="/AprobarClases" element={<AprobarClases />} />
       </Routes>
       <Footer/>
     </div>
