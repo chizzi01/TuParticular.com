@@ -6,7 +6,7 @@ function PerfilProfesor() {
         <div className='profesor'>
             <div className='MisClasesBackNavProfesor'>
                 <a href="MisClasesProfesor" ><input id='MisClasesProfesorButton' type="button" value="Mis Clases" /></a>
-                <a href="AprobarClases" ><input id='MisClasesProfesorButton' type="button" value="Aprobar Clases" /></a>
+                <a href="AprobarClases" ><input id='MisClasesProfesorButton' type="button" value="Aprobar Clases/Comentarios" /></a>
             </div>
             <h1>Mi Perfil</h1>
             <form>

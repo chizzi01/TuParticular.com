@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Clases.css';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import AprobarComentarios from '../AprobarComentarios/AprobarComentarios';
+import '../Clases/Clases.css';
 
-function AprobarClases() {
+function AprobarComentarios() {
   const dataClases = [
 
-    { id: 1, nombre: "Quimica", solicitante: "Manuel Papaya", edad: "18", estado: "Pendiente" },
-    { id: 2, nombre: "Quimica 2", solicitante: "Juan Perez", edad: "22", estado: "Pendiente" },
+    { id: 1, cometario: "Muy buena", solicitante: "Manuel Papaya", estado: "Pendiente" },
+    { id: 2, cometario: "Malisima", solicitante: "Juan Perez", estado: "Pendiente"},
   ];
 
   const [data, setData] = useState(dataClases);
@@ -16,9 +15,8 @@ function AprobarClases() {
   const [modalRechazar, setModalRechazar] = useState(false);
   const [claseSeleccionada, setClaseSeleccionada] = useState({
     id: '',
-    nombre: '',
+    cometario: '',
     solicitante: '',
-    edad: '',
     estado: ''
 
   });
@@ -54,15 +52,14 @@ function AprobarClases() {
 
 
   return (
-    <div id='MisClases'>
-      <h1>Aprobar Clases</h1>
+    <div id='Comentarios'>
+      <h1>Aprobar Comentarios</h1>
       <br /><br />
       <table className='table table-borderer'>
         <thead>
           <tr>
-            <th>Clase</th>
+            <th>Cometario</th>
             <th>Solicitante</th>
-            <th>Edad</th>
             <th>Estado</th>
 
 
@@ -71,9 +68,8 @@ function AprobarClases() {
         <tbody>
           {data.map(clase => (
             <tr key={clase.id}>
-              <td>{clase.nombre}</td>
+              <td>{clase.cometario}</td>
               <td>{clase.solicitante}</td>
-              <td>{clase.edad}</td>
               <td>{clase.estado}</td>
 
               <td> <button className='btn btn-success' onClick={() => seleccionarClase(clase, 'Aprobar')}>Aprobar</button> {" "}
@@ -83,8 +79,6 @@ function AprobarClases() {
         </tbody>
       </table>
 
-            <AprobarComentarios />
-
       <Modal isOpen={modalRechazar}>
         <ModalHeader>
           <div>
@@ -92,7 +86,7 @@ function AprobarClases() {
           </div>
         </ModalHeader>
         <ModalBody>
-          Estas seguro que deseas rechazar esta solicitud:  {claseSeleccionada && claseSeleccionada.nombre} ?
+          Estas seguro que deseas rechazar este cometario?  {claseSeleccionada && claseSeleccionada.cometario}
         </ModalBody>
         <ModalFooter>
           <button className='btn btn-danger' onClick={() => rechazar()}>Sí</button>
@@ -108,7 +102,7 @@ function AprobarClases() {
           </div>
         </ModalHeader>
         <ModalBody>
-          Estas seguro que deseas aprobar esta solicitud: {claseSeleccionada && claseSeleccionada.nombre} ?
+          Estas seguro que deseas aprobar este comentario? {claseSeleccionada && claseSeleccionada.cometario}
         </ModalBody>
         <ModalFooter>
           <button className='btn btn-success' onClick={() => aprobar()}>Aprobar</button>
@@ -121,4 +115,4 @@ function AprobarClases() {
 
 
 
-export default AprobarClases;
+export default AprobarComentarios;
