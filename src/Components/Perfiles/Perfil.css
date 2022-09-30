@@ -1,3 +1,5 @@
+
+
 .perfil-align {
     display: flex;
     flex-direction: column;
@@ -110,4 +112,17 @@ input[type="date"] {
     color: white;
     margin-top: 10px;
     font-family: 'Sora', sans-serif;
+}
+
+.MisClasesBackNavProfesor input[type="button"] {
+    background-color: #45e58d;
+    border: #45e58d;
+    width: 50%;
+    font-size: 25px;
+    font-family: 'Sora', sans-serif;
+    height: 80px;
+}
+
+.MisClasesBackNavProfesor input[type="button"]:hover {
+    background-color: #8affbf;
 }

@@ -15,4 +15,6 @@
 
 #comentar{
 width: 100%;
+border: gray 1px solid;
+border-radius: 6px;
 }

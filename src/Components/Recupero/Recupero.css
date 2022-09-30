@@ -39,9 +39,9 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type="text"],
+.login input[type="text"],
 input[type="password"], input[type="email"], input[type="number"], select {
-    height: 30px;
+    height: 35px;
     border: 2px solid #0071BC;
     border-radius: 12px;
     font-size: 14px;

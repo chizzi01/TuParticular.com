@@ -162,11 +162,11 @@ function MisClasesProfesor() {
           </div>
         </ModalHeader>
         <ModalBody>
-          Estas seguro que deseas eliminar la clase {claseSeleccionada && claseSeleccionada.nombre}
+          Estas seguro que deseas eliminar la clase: {claseSeleccionada && claseSeleccionada.nombre} ?
         </ModalBody>
         <ModalFooter>
           <button className='btn btn-danger' onClick={() => eliminar()}>Sí</button>
-          <button className='btn btn-secundary' onClick={() => setModalEliminar(false)}>No</button>
+          <button className='btn btn-secondary' onClick={() => setModalEliminar(false)}>No</button>
         </ModalFooter>
       </Modal>
 

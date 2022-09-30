@@ -1,5 +1,6 @@
 import React from 'react';
 import video from '../../img/study.mp4';
+import logoNav from '../../img/Tu Particular.png';
 import './Inicio.css';
 
 function Inicio() {
@@ -9,6 +10,9 @@ function Inicio() {
       </header>
             <div className='inicio-container'>
                 <h1 className='inicio-h1'>Encontrá las <br /> mejores clases <br /> particulares</h1>
+                <div className='inicio-logo-align'>
+                <img src={logoNav} className="resize-logo-inicio"/>
+                </div>
                 <video className='inicio-video' src={video} muted autoPlay loop playsInline></video>
             </div>
             <div className='container-box'>

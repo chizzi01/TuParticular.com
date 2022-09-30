@@ -22,7 +22,7 @@
 }
 
 .inicio-h1 {
-  font-size: 100px;
+  font-size: 90px;
   position: absolute;
   top: 15%;
   left: 5%;
@@ -107,6 +107,7 @@
   text-align: left;
   letter-spacing: 5px;
   margin-left: 50px;
+  text-decoration: underline;
 }
 
 .p-clases:hover {
@@ -125,4 +126,18 @@
   color: white;
   margin-top: 10px;
   font-family: 'Sora', sans-serif;
+}
+
+.inicio-logo-align{
+  position: absolute;
+  top: 15%;
+  left: 60%;
+  z-index: 0;
+}
+
+.resize-logo-inicio{
+  width: 350px;
+  height: 350px;
+  background-color: rgba(255, 255, 255, 0.575);
+  border-radius: 60%;
 }
