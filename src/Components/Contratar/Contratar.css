@@ -17,3 +17,16 @@ h3{
 .contratar-h1{
     margin-bottom: 0%;
 }
+
+#contratarTextarea{
+    resize: none;
+    border-radius: 12px;
+    border: 2px solid #0071BC;
+    margin-top: 10px;
+}
+
+#contratar-h3{
+    margin-top: 15px;
+    color: aliceblue;
+    font-size: 20px;
+}
