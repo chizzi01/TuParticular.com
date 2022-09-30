@@ -12,13 +12,14 @@
     font-family: 'Amaranth', sans-serif;
 }
 
-a {
+.navBar a {
     color: #fff;
     text-decoration: none;
 }
 
 .ColorA{
     color: rgb(26, 26, 26);
+    text-decoration: none;
 }
 
 ul {
@@ -65,4 +66,8 @@ li {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.navBar p {
+text-decoration: none;
 }
