@@ -15,7 +15,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
 
-const pages = ['Inicio', 'Clases', 'Contacto'];
+const pages = ['Inicio', 'Clases'];
 
 
 const Navbar = () => {
@@ -96,14 +96,14 @@ const Navbar = () => {
                     <Link
                       style={{ textDecoration: 'none', color: 'white ' }}
                       to={`/${page}`}
-                      >
+                    >
                       {page}
                     </Link>
                   </MenuItem>
                 ))}
               </Menu>
             </Box>
-            <img src={logoNav} alt="" id='imgRes' className='imageDesign'/>
+            <img src={logoNav} alt="" id='imgRes' className='imageDesign' />
             <Typography
               variant="h5"
               noWrap
@@ -135,7 +135,7 @@ const Navbar = () => {
                 </Button>
               ))}
             </Box>
-
+            <a className='ingresar' href="Login"><Typography textAlign="center">Ingresar</Typography></a>
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Perfil">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -158,12 +158,12 @@ const Navbar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <a className='ColorA' href="Alumno"><Typography textAlign="center">Mi perfil</Typography></a>
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseUserMenu}>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <a className='ColorA' href="Alumno"><Typography textAlign="center">Mi perfil</Typography></a>
+                </MenuItem>
+                <MenuItem onClick={handleCloseUserMenu}>
                   <a className='ColorA'><Typography textAlign="center">Cerrar Sesion</Typography></a>
-                  </MenuItem>
+                </MenuItem>
               </Menu>
             </Box>
           </Toolbar>

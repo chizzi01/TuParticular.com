@@ -33,7 +33,7 @@ function Footer() {
 
           <p>Contactanos</p>
 
-          <form action="#" method="post">
+          <form>
 
             <input type="text" name="email" placeholder="Email" />
             <textarea name="message" placeholder="Message"></textarea>

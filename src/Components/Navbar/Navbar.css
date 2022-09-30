@@ -17,7 +17,7 @@
     text-decoration: none;
 }
 
-.ColorA{
+.ColorA {
     color: rgb(26, 26, 26);
     text-decoration: none;
 }
@@ -62,12 +62,23 @@ li {
     }
 }
 
-.login-nav-align{
+.login-nav-align {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
 .navBar p {
-text-decoration: none;
+    text-decoration: none;
+}
+
+.ingresar {
+    margin-right: 30px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.navBar a:hover {
+    color: white;
+    text-shadow: #e7e7e7 0px 0px 3px;
 }

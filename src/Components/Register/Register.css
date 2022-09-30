@@ -85,7 +85,7 @@ input[type="button"]:hover{
 }
 
 
-label {
+.login label {
     font-size: 14px;
     color: white;
     margin-top: 10px;
@@ -99,4 +99,8 @@ label {
     justify-content: center;
     margin: auto;
     width: 250px;
+}
+
+.login select{
+    margin-top: 10px;
 }

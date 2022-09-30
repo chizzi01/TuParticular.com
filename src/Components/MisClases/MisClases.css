@@ -1,0 +1,40 @@
+
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+label{
+    color: #000 ;
+}
+
+#MisClases h3{
+color: #000;
+
+}
+#MisClases{
+    height: 100vh;
+}
+
+#MisClases select{
+height: 50%;
+}
+
+#buttonCrear{
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+table{
+    margin-left: 20px;
+}
+
+.Clases h1{
+margin-top: 100px;
+color: #1976D2;
+}
+
+#MisClases h1{
+margin-top: 100px;
+color: #1976D2;
+}

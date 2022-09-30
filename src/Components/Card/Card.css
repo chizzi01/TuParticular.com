@@ -7,3 +7,12 @@
     background-color: #0a8adf;
     border-color: #0a8adf;
 }
+
+#finalizar{
+    background-color: rgb(255, 83, 83);
+    border-color: rgb(255, 83, 83);
+}
+
+#comentar{
+width: 100%;
+}

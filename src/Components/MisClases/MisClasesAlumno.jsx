@@ -1,13 +1,14 @@
 import React from 'react';
 import './MisClases.css';
-import CardClases from '../Card/Card';
+import CardContratada from '../Card/CardContratada';
 
 function MisClasesAlumno() {
   return (
     <div className="Clases">
+      <h1>Mis Clases</h1>
       <div className='cards-container'>
         <div className='card-align'>
-          <CardClases/>
+          <CardContratada/>
         </div>
       </div>
     </div>
