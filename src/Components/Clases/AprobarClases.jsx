@@ -57,6 +57,7 @@ function AprobarClases() {
     <div id='MisClases'>
       <h1>Aprobar Clases</h1>
       <br /><br />
+      <div className='responsive-table'>
       <table className='table table-borderer'>
         <thead>
           <tr>
@@ -76,12 +77,13 @@ function AprobarClases() {
               <td>{clase.edad}</td>
               <td>{clase.estado}</td>
 
-              <td> <button className='btn btn-success' onClick={() => seleccionarClase(clase, 'Aprobar')}>Aprobar</button> {" "}
-                <button className='btn btn-danger' onClick={() => seleccionarClase(clase, 'Eliminar')}>Rechazar</button></td>
+              <td> <button className='btn btn-success adjustbutton' onClick={() => seleccionarClase(clase, 'Aprobar')}>√</button> {" "}
+                <button className='btn btn-danger adjustbutton' onClick={() => seleccionarClase(clase, 'Eliminar')}>X</button></td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
 
             <AprobarComentarios />
 

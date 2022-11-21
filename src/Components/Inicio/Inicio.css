@@ -22,7 +22,7 @@
 }
 
 .inicio-h1 {
-  font-size: 90px;
+  font-size: 5rem;
   position: absolute;
   top: 15%;
   left: 5%;
@@ -42,7 +42,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row wrap;
 }
 
 .white-box {
@@ -116,7 +116,7 @@
 }
 
 
-.Inicio a{
+.Inicio a {
   text-decoration: none;
   color: #fff;
 }
@@ -128,16 +128,67 @@
   font-family: 'Sora', sans-serif;
 }
 
-.inicio-logo-align{
+.inicio-logo-align {
   position: absolute;
   top: 15%;
   left: 60%;
   z-index: 0;
 }
 
-.resize-logo-inicio{
+.resize-logo-inicio {
   width: 350px;
   height: 350px;
   background-color: rgba(255, 255, 255, 0.575);
   border-radius: 60%;
+}
+
+@media screen and (max-width: 768px) {
+
+  .resize-logo-inicio {
+    width: 200px;
+    height: 200px;
+  }
+
+  .inicio-logo-align {
+    top: 40%;
+    left: 9%;
+  }
+
+  .inicio-h1 {
+    font-size: 3rem;
+  }
+
+  .white-box h2 {
+    font-size: 2rem;
+  }
+
+  .green-box h2 {
+    font-size: 2rem;
+  }
+
+
+}
+
+@media screen and (max-width: 1019px) {
+  .inicio-logo-align {
+    top: 55%;
+    left: 9%;
+  }
+
+  .resize-logo-inicio {
+    width: 200px;
+    height: 200px;
+  }
+
+}
+
+@media screen and (max-width: 543px) {
+  .green-box {
+    display: none;
+  }
+
+  .white-box {
+    width: 100%;
+  }
+
 }

@@ -21,3 +21,20 @@ margin-bottom: 10px;
 #MisClases select{
 height: 100px;
 }
+
+@media screen and (max-width: 390px) {
+.searchbar-container {
+margin-left: 30px;
+}
+
+.responsive-table{
+font-size: 0.6rem;
+}
+
+.adjustbutton{
+font-size: 10px !important;
+width: 50px;
+height: 30px;
+margin-right: 0% !important;
+}
+}

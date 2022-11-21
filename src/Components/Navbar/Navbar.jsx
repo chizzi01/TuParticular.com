@@ -115,6 +115,7 @@ const Navbar = () => {
                 flexGrow: 1,
                 fontFamily: 'Amaranth',
                 fontWeight: 700,
+                fontSize: '1rem',
                 letterSpacing: '.1rem',
                 color: 'inherit',
                 textDecoration: 'none',
