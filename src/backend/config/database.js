@@ -1,8 +1,9 @@
 //db.js
+const dotenv = require('dotenv').config();
 
 const mongoose = require('mongoose')
 
-const password = "aodUBDnaSVsCbC9x"
+const password = process.env.REACT_APP_API_PASSWORD;
 
 const url = `mongodb+srv://tuparticular:${password}@cluster0.oiw0yxx.mongodb.net/?retryWrites=true&w=majority`;
 
