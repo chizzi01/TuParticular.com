@@ -7,7 +7,8 @@ descripcion: String,
 duración: Number,
 precio: Number,
 frecuencia: String,
-tipo: String
+tipo: String,
+aprobado: Boolean, default: false
 });
 
 module.exports = mongoose.model('Clase', ClaseSchema);
