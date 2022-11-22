@@ -19,19 +19,21 @@ h1 {
     display: none;
 }
 
-#ModalAlert{
+#ModalAlert {
     position: absolute;
-    top: 30%;
-    left: 40%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px;
     width: 300px;
     height: 200px;
-    background-color: rgb(253, 71, 71);
+    background-color: rgba(250, 95, 95, 0.959);
     z-index: 2;
     border-radius: 20px;
 }
 
-#ModalAlert p{
+#ModalAlert p {
     color: #fff;
     padding-top: 20px;
     font-size: 1em;
@@ -57,7 +59,7 @@ h1 {
     margin-bottom: 0%;
 }
 
-#RegistrarseBTN{
+#RegistrarseBTN {
     height: 26px;
     border: 2px solid #0071BC;
     background-color: #0071BC;
@@ -71,12 +73,15 @@ h1 {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type="text"],
-input[type="password"], input[type="email"], input[type="number"], select {
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select {
     height: 30px;
     border: 2px solid #0071BC;
     border-radius: 12px;
@@ -99,6 +104,7 @@ input[type="submit"] {
     cursor: pointer;
     font-family: 'Sora', sans-serif;
 }
+
 input[type="button"] {
     height: 25px;
     border: 2px solid #47AE6A;
@@ -111,12 +117,12 @@ input[type="button"] {
     font-family: 'Sora', sans-serif;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
     background-color: #45B0E5;
     border: #45B0E5;
 }
 
-input[type="button"]:hover{
+input[type="button"]:hover {
     background-color: #45e58d;
     border: #45e58d;
 }
@@ -138,6 +144,6 @@ input[type="button"]:hover{
     width: 250px;
 }
 
-.login select{
+.login select {
     margin-top: 10px;
 }

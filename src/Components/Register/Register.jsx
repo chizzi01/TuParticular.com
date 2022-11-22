@@ -62,10 +62,12 @@ class Register extends React.Component {
             telefono: this.state.telefono,
             rol: this.state.rol
         }
-        let ModalAlert = document.getElementById('ModalAlert ');
-        if (registro.rol === 'Rol') {
+        let ModalAlert = document.getElementById('ModalAlert');
+        if (registro.rol === '') {
             ModalAlert.classList.remove('hide');
-            alert('Seleccione un Rol');
+            setTimeout(() => {
+                ModalAlert.classList.add('hide');
+            }, 1500);
         } else {
 
             if (registro.rol === 'Alumno') {
@@ -111,13 +113,11 @@ class Register extends React.Component {
                 <div className='logoCenter'>
                     <img src={logo} alt="Tu particular" srcset="" />
                 </div>
-
+                <h1>Registrarse</h1>
                 <div id='ModalAlert' className='hide'>
                     <h1>Datos Incorrectos</h1>
                     <p>Seleccione un Rol</p>
                 </div>
-
-                <h1>Registrarse</h1>
                 <form onSubmit={this.onSubmit}>
                     <div className='loginForm'>
                         <input type='text' placeholder='Nombre' name='Nombre' value={this.state.nombre} onChange={this.changeNombre} required />

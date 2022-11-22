@@ -2,16 +2,18 @@ const express = require('express');
 const router = express.Router();
 const Alumno = require('../Models/alumno');
 const mongoose = require('mongoose');
-
+const bcrypt = require('bcrypt');
 
 router.post('/', (req, res) => {
+    const saltpassword = bcrypt.genSaltSync(10);
+    const hashpassword = bcrypt.hashSync(req.body.password, saltpassword);
 
     const alumno = new Alumno({
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         email: req.body.email,
         telefono: req.body.telefono,
-        password: req.body.password,
+        password: hashpassword,
         rol: req.body.rol,
         fechadenacimiento: req.body.fechadenacimiento,
         estudios: req.body.estudios,
