@@ -19,9 +19,8 @@ app.get('/', (req, res) => res.send('API Running'));
 
 // Define Routes
 
-app.use('/api/profesores', require('./src/routes/profesores'));
-app.use('/api/usuarios', require('./src/routes/signup'));
-app.use('/api/alumnos', require('./src/routes/alumnos'));
+app.use('/api/usuarios', require('./src/routes/usuarios'));
+app.use('/api/signin', require('./src/routes/signin'));
 
 const PORT = process.env.PORT || 3900;
 

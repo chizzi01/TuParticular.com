@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 
 const pages = ['Inicio', 'Clases'];
 
+let ingresar = document.getElementById('ingresar');
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -36,6 +37,18 @@ const Navbar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/';
+  };
+
+  const userLogged = localStorage.getItem('token');
+
+  if (userLogged) {
+    ingresar.classlist.add('hide');
+    console.log('hola');
+  }
 
   return (
     <div className="navBar">
@@ -136,7 +149,7 @@ const Navbar = () => {
                 </Button>
               ))}
             </Box>
-            <a className='ingresar' href="Login"><Typography textAlign="center">Ingresar</Typography></a>
+            <a className='ingresar' id='ingresar' href="Login"><Typography textAlign="center">Ingresar</Typography></a>
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Perfil">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -163,7 +176,7 @@ const Navbar = () => {
                   <a className='ColorA' href="Alumno"><Typography textAlign="center">Mi perfil</Typography></a>
                 </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <a className='ColorA'><Typography textAlign="center">Cerrar Sesion</Typography></a>
+                  <a className='ColorA' onClick={handleLogout}><Typography textAlign="center">Cerrar Sesion</Typography></a>
                 </MenuItem>
               </Menu>
             </Box>
@@ -173,4 +186,5 @@ const Navbar = () => {
     </div>
   );
 };
+
 export default Navbar;

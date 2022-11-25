@@ -65,42 +65,57 @@ class Register extends React.Component {
         let ModalAlert = document.getElementById('ModalAlert');
         if (registro.rol === '') {
             ModalAlert.classList.remove('hide');
+            ModalAlert.innerHTML = '<p>Seleccione un Rol</p>';
             setTimeout(() => {
                 ModalAlert.classList.add('hide');
             }, 1500);
         } else {
 
-            if (registro.rol === 'Alumno') {
-                axios.post('http://localhost:3900/api/alumnos', registro)
-                    .then(res => console.log(res.data));
-                this.setState({
-                    nombre: '',
-                    apellido: '',
-                    email: '',
-                    password: '',
-                    telefono: '',
-                    rol: ''
-                })
+            // if (registro.rol === 'Alumno') {
+            //     axios.post('http://localhost:3900/api/alumnos', registro)
+            //         .then(res => console.log(res.data));
+            //     this.setState({
+            //         nombre: '',
+            //         apellido: '',
+            //         email: '',
+            //         password: '',
+            //         telefono: '',
+            //         rol: ''
+            //     })
+            //     window.location = '/Login';
+            // }
+
+            // if (registro.rol === 'Profesor') {
+            //     axios.post('http://localhost:3900/api/profesores', registro)
+            //         .then(res => console.log(res.data));
+            //     this.setState({
+            //         nombre: '',
+            //         apellido: '',
+            //         email: '',
+            //         password: '',
+            //         telefono: '',
+            //         rol: ''
+            //     })
+            //     window.location = '/Login';
+            // }
+
+            axios.post('http://localhost:3900/api/usuarios', registro)
+            .then(res => {
+                console.log(res.status);
                 window.location = '/Login';
-            }
-
-            if (registro.rol === 'Profesor') {
-                axios.post('http://localhost:3900/api/profesores', registro)
-                    .then(res => console.log(res.data));
-                this.setState({
-                    nombre: '',
-                    apellido: '',
-                    email: '',
-                    password: '',
-                    telefono: '',
-                    rol: ''
-                })
-                window.location = '/Login';
-            }
-
-            // axios.post('http://localhost:3900/api/usuarios', registro)
-            //     .then(res => console.log(res.data));
-
+            }).catch(err => {
+                if (err.code === "ERR_BAD_REQUEST") {
+                    let errores = "";
+                    err.response.data.errors.forEach(error => {
+                        errores += error.msg + " ";
+                    });
+                    ModalAlert.classList.remove('hide');
+                    ModalAlert.innerHTML = '<p>' + errores + '</p>';
+                    setTimeout(() => {
+                        ModalAlert.classList.add('hide');
+                    }, 1500);
+                };
+            });
         }
 
 
@@ -116,7 +131,6 @@ class Register extends React.Component {
                 <h1>Registrarse</h1>
                 <div id='ModalAlert' className='hide'>
                     <h1>Datos Incorrectos</h1>
-                    <p>Seleccione un Rol</p>
                 </div>
                 <form onSubmit={this.onSubmit}>
                     <div className='loginForm'>

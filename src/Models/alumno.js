@@ -2,12 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const AlumnoSchema = new Schema({
-    nombre: String,
-    apellido: String,
-    email: String,
-    telefono: String,
-    password: String,
-    rol: String,
     fechadenacimiento: Date,
     estudios: String,
     nivel: String,

@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const ClaseSchema = new Schema({
 nombre: String,
+profesor: String,
 descripcion: String,
 duración: Number,
 precio: Number,
