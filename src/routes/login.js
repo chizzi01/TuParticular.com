@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Usuario = require('../Models/usuario');
@@ -10,12 +10,8 @@ router.post('/', (req, res) => {
     const hashpassword = bcrypt.hashSync(req.body.password, saltpassword);
 
     const usuario = new Usuario({
-        nombre: req.body.nombre,
-        apellido: req.body.apellido,
         email: req.body.email,
-        telefono: req.body.telefono,
-        password: hashpassword,
-        rol: req.body.rol,
+        password: hashpassword
     });
 
     usuario.save().then(result => {
@@ -33,4 +29,9 @@ router.post('/', (req, res) => {
     );
 });
 
-module.exports = router;
+function checkUser(user, password){
+    
+}
+
+
+module.exports = router;  */
