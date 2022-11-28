@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Clase = require('../Models/clase');
 const mongoose = require('mongoose');
-//const bcrypt = require('bcrypt');
 
 router.post('/', (req, res) => {
 

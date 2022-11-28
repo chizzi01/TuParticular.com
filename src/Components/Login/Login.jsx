@@ -6,6 +6,7 @@ import axios from 'axios';
 
 
 class Login extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -56,8 +57,6 @@ class Login extends React.Component {
                     }, 1500);
                 };
             });
-
-
 
     }
 

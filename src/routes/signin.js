@@ -35,7 +35,7 @@ router.post("/", [[check("email", "Please include a valid email").isEmail(), che
 
         jwt.sign(
             payload,
-            process.env.JWT_SECRET, { expiresIn: 360000 }, (err, token) => { if (err) throw err; res.json({ token }); });
+            process.env.JWT_SECRET, { expiresIn: 36000 }, (err, token) => { if (err) throw err; res.json({ token }); });
 
     } catch (err) {
         console.error(err.message);

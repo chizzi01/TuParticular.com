@@ -16,6 +16,7 @@ import AprobarClases from './Components/Clases/AprobarClases';
 
 
 function App() {
+
   return (
     <div className="App">
       <Navbar/>

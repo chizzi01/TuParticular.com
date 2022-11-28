@@ -14,10 +14,11 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
+import Ingresar from './Ingresar';
+import axios from 'axios';
 
 const pages = ['Inicio', 'Clases'];
 
-let ingresar = document.getElementById('ingresar');
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,17 +39,38 @@ const Navbar = () => {
     setAnchorElUser(null);
   };
 
+  const handlePerfil = async () => {
+    await axios.get('http://localhost:3900/api/profile', {
+      headers: { "x-auth-token": localStorage.getItem('token') }
+    })
+      .then(res => {
+        if (res.status === 200) {
+          if (res.data.rol === 'Alumno')
+            return window.location = '/Alumno';
+        }
+        window.location = '/Profesor';
+      }).catch(err => {
+        if (err.code === "ERR_BAD_REQUEST") {
+          window.location = '/Login';
+        };
+      });
+  }
+
   const handleLogout = () => {
     localStorage.removeItem('token');
-    window.location.href = '/';
+    window.location = '/Inicio';
   };
 
-  const userLogged = localStorage.getItem('token');
+  const checkToken = () => {
+    if (localStorage.getItem('token')) {
+      return (true);
+    };
+    return (false);
 
-  if (userLogged) {
-    ingresar.classlist.add('hide');
-    console.log('hola');
-  }
+  };
+
+  checkToken();
+
 
   return (
     <div className="navBar">
@@ -149,7 +171,9 @@ const Navbar = () => {
                 </Button>
               ))}
             </Box>
-            <a className='ingresar' id='ingresar' href="Login"><Typography textAlign="center">Ingresar</Typography></a>
+            <div className='ingresar'>
+              {checkToken() ? "" : <Ingresar />}
+            </div>
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Perfil">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -173,7 +197,7 @@ const Navbar = () => {
                 onClose={handleCloseUserMenu}
               >
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <a className='ColorA' href="Alumno"><Typography textAlign="center">Mi perfil</Typography></a>
+                  <a onClick={handlePerfil} className='ColorA'><Typography textAlign="center">Mi perfil</Typography></a>
                 </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>
                   <a className='ColorA' onClick={handleLogout}><Typography textAlign="center">Cerrar Sesion</Typography></a>
