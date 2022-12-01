@@ -89,6 +89,9 @@ select {
     color: #333;
     margin-top: 10px;
     font-family: 'Sora', sans-serif;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 5px;
 }
 
 

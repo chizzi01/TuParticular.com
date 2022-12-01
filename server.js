@@ -22,6 +22,7 @@ app.get('/', (req, res) => res.send('API Running'));
 app.use('/api/usuarios', require('./src/routes/usuarios'));
 app.use('/api/signin', require('./src/routes/signin'));
 app.use('/api/profile', require('./src/routes/profile'));
+app.use('/api/clases', require('./src/routes/clases'));
 
 const PORT = process.env.PORT || 3900;
 

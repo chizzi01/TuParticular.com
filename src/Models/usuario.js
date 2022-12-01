@@ -35,6 +35,9 @@ const UsuarioSchema = new Schema({
     profesorId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Profesor'
+    },
+    authHash: {
+        type: String,
     }
 });
 

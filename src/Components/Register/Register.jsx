@@ -70,35 +70,6 @@ class Register extends React.Component {
                 ModalAlert.classList.add('hide');
             }, 1500);
         } else {
-
-            // if (registro.rol === 'Alumno') {
-            //     axios.post('http://localhost:3900/api/alumnos', registro)
-            //         .then(res => console.log(res.data));
-            //     this.setState({
-            //         nombre: '',
-            //         apellido: '',
-            //         email: '',
-            //         password: '',
-            //         telefono: '',
-            //         rol: ''
-            //     })
-            //     window.location = '/Login';
-            // }
-
-            // if (registro.rol === 'Profesor') {
-            //     axios.post('http://localhost:3900/api/profesores', registro)
-            //         .then(res => console.log(res.data));
-            //     this.setState({
-            //         nombre: '',
-            //         apellido: '',
-            //         email: '',
-            //         password: '',
-            //         telefono: '',
-            //         rol: ''
-            //     })
-            //     window.location = '/Login';
-            // }
-
             axios.post('http://localhost:3900/api/usuarios', registro)
             .then(res => {
                 console.log(res.status);
@@ -134,7 +105,7 @@ class Register extends React.Component {
                 </div>
                 <form onSubmit={this.onSubmit}>
                     <div className='loginForm'>
-                        <input type='text' placeholder='Nombre' name='Nombre' value={this.state.nombre} onChange={this.changeNombre} required />
+                        <input type='text' placeholder='Nombre' name='Nombre' value={this.state.nombre} onChange={this.changeNombre} autoFocus required />
                         <input type='text' placeholder='Apellido' name='Apellido' value={this.state.apellido} onChange={this.changeApellido} required />
                         <input type='email' placeholder='Correo' name='Correo' value={this.state.email} onChange={this.changeEmail} required />
                         <input type="number" placeholder='Telefono' name='Telefono' value={this.state.telefono} onChange={this.changeTelefono} required />

@@ -26,8 +26,6 @@ class PerfilProfesor extends React.Component {
         this.getData();
     }
 
-
-
     changeTitulo = (event) => {
         this.setState({ titulo: event.target.value })
     }
@@ -95,7 +93,7 @@ class PerfilProfesor extends React.Component {
                         <label id='Apellido' htmlFor="">Apellido: {this.state.apellido} </label>
                         <input id='Titulo' type='text' placeholder='Titulo' onChange={this.changeTitulo} value={this.state.titulo} required />
                         <textarea id='Experiencia' name="exp" cols="30" rows="10" placeholder='Experiencia' onChange={this.changeExperiencia} value={this.state.experiencia}></textarea>
-                        <input id='Guardar' type='button' value='Guardar' />
+                        <input id='Guardar' type='submit' value='Guardar' />
                     </div>
                 </form>
 

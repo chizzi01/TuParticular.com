@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import './MisClases.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import axios from 'axios';
 
 
 
 function MisClasesProfesor() {
   const dataClases = [
-
-    { id: 1, nombre: "Clase 1", descripcion: "Descripcion de la clase 1", duracion: "1 hora", precio: "1000", frecuencia: "Semanal", tipo: "Grupal" },
-    { id: 2, nombre: "Clase 2", descripcion: "Descripcion de la clase 2", duracion: "1 hora", precio: "1000", frecuencia: "Semanal", tipo: "Grupal" },
   ];
 
   const [data, setData] = useState(dataClases);
@@ -17,7 +15,6 @@ function MisClasesProfesor() {
   const [modalEliminar, setModalEliminar] = useState(false);
   const [modalInsertar, setModalInsertar] = useState(false);
   const [claseSeleccionada, setClaseSeleccionada] = useState({
-    id: '',
     nombre: '',
     descripcion: '',
     duracion: '',
@@ -25,6 +22,11 @@ function MisClasesProfesor() {
     frecuencia: '',
     tipo: ''
   });
+
+  React.useEffect(() => {
+    getData();
+  }, []);
+
 
   const seleccionarClase = (clase, caso) => {
     setClaseSeleccionada(clase);
@@ -40,24 +42,39 @@ function MisClasesProfesor() {
   }
 
   const editar = () => {
-    var dataNueva = data;
-    dataNueva.map(clase => {
+    axios.put('http://localhost:3900/api/clases/' + claseSeleccionada.id, claseSeleccionada,{
+      headers: { "x-auth-token": localStorage.getItem('token') }
+    }).then(res => {
+    data.map(clase => {
       if (clase.id === claseSeleccionada.id) {
-        clase.nombre = claseSeleccionada.nombre;
-        clase.descripcion = claseSeleccionada.descripcion;
-        clase.duracion = claseSeleccionada.duracion;
-        clase.precio = claseSeleccionada.precio;
-        clase.frecuencia = claseSeleccionada.frecuencia;
-        clase.tipo = claseSeleccionada.tipo;
+        clase.nombre = claseSeleccionada.nombre || clase.nombre;
+        clase.descripcion = claseSeleccionada.descripcion || clase.descripcion;
+        clase.duracion = claseSeleccionada.duracion || clase.duracion;
+        clase.precio = claseSeleccionada.precio || clase.precio;
+        clase.frecuencia = claseSeleccionada.frecuencia || clase.frecuencia;
+        clase.tipo = claseSeleccionada.tipo || clase.tipo;
       }
+      setData(data);
+      setModalEditar(false);
     });
-    setData(dataNueva);
-    setModalEditar(false);
+  }).catch(err => {
+    console.log(err);
+    alert("No se pudo editar la clase");
+  });
+
   }
 
   const eliminar = () => {
-    setData(data.filter(clase => clase.id !== claseSeleccionada.id));
-    setModalEliminar(false);
+    axios.delete('http://localhost:3900/api/clases/' + claseSeleccionada.id,{
+      headers: { "x-auth-token": localStorage.getItem('token') }
+    })
+    .then (response => {
+      setData(data.filter(clase => clase.id !== response.data._id));
+      setModalEliminar(false);
+    }) .catch (error => {
+      alert("No se pudo eliminar la clase");
+      console.log(error);
+    } )
   }
 
   const abrirModalInsertar = () => {
@@ -66,13 +83,45 @@ function MisClasesProfesor() {
   }
 
   const insertar = () => {
-    var valorInsertar = claseSeleccionada;
-    valorInsertar.id = data[data.length - 1].id + 1;
-    setData(data.concat(valorInsertar));
-    setModalInsertar(false);
+    axios.post('http://localhost:3900/api/clases', claseSeleccionada, {
+      headers: { "x-auth-token": localStorage.getItem('token') }
+    }).then(res => {
+      claseSeleccionada.id = res.data.id;
+      claseSeleccionada.nombre = res.data.nombre;
+      claseSeleccionada.descripcion = res.data.descripcion;
+      claseSeleccionada.duracion = res.data.duracion;
+      claseSeleccionada.precio = res.data.precio;
+      claseSeleccionada.frecuencia = res.data.frecuencia;
+      claseSeleccionada.tipo = res.data.tipo;
+      setData(data.concat(claseSeleccionada));
+      setModalInsertar(false);
+    }).catch(err => {
+      console.log(err);
+      alert("Error al insertar");
+    })
   }
 
-
+  const getData = () => {
+    axios.get('http://localhost:3900/api/clases', {
+      headers: { "x-auth-token": localStorage.getItem('token') }
+    }).then(res => {
+      let clases = res.data;
+      clases = clases.map(clase => 
+        ({
+          id: clase._id,
+          nombre: clase.nombre,
+          descripcion: clase.descripcion,
+          duracion: clase.duracion,
+          precio: clase.precio,
+          frecuencia: clase.frecuencia,
+          tipo: clase.tipo
+        })
+      );
+      setData(data.concat(...clases));
+    }).catch(err => {
+      console.log(err);
+    })
+  }
 
   return (
     <div id='MisClases'>
@@ -96,7 +145,7 @@ function MisClasesProfesor() {
               <td>{clase.nombre}</td>
               <td>{clase.descripcion}</td>
               <td>{clase.duracion}</td>
-              <td>{clase.precio}</td>
+              <td>{"$" + clase.precio}</td>
               <td>{clase.frecuencia}</td>
               <td>{clase.tipo}</td>
               <td> <button className='btn btn-primary' onClick={() => seleccionarClase(clase, 'Editar')}>Editar</button> {" "}
@@ -113,10 +162,6 @@ function MisClasesProfesor() {
         </ModalHeader>
         <ModalBody>
           <div className='form-group'>
-            <label>Id</label>
-            <br />
-            <input type='text' className='form-control' readOnly name='id' value={claseSeleccionada && claseSeleccionada.id} />
-            <br />
             <label>Nombre</label>
             <br />
             <input type='text' className='form-control' name='nombre' value={claseSeleccionada && claseSeleccionada.nombre} onChange={handleChange} />
@@ -178,10 +223,6 @@ function MisClasesProfesor() {
         </ModalHeader>
         <ModalBody>
           <div className='form-group'>
-            <label>Id</label>
-            <br />
-            <input type='text' className='form-control' readOnly name='id' value={data[data.length - 1].id + 1} />
-            <br />
             <label>Nombre</label>
             <br />
             <input type='text' className='form-control' name='nombre' value={claseSeleccionada && claseSeleccionada.nombre} onChange={handleChange} required />
@@ -192,11 +233,11 @@ function MisClasesProfesor() {
             <br />
             <label>Duracion</label>
             <br />
-            <input type='text' className='form-control' name='duracion' value={claseSeleccionada && claseSeleccionada.duracion} onChange={handleChange} required />
+            <input type='time' className='form-control' name='duracion' value={claseSeleccionada && claseSeleccionada.duracion} onChange={handleChange} required />
             <br />
             <label>Precio</label>
             <br />
-            <input type='text' className='form-control' name='precio' value={claseSeleccionada && claseSeleccionada.precio} onChange={handleChange} required />
+            <input type='number' className='form-control' name='precio' value={claseSeleccionada && claseSeleccionada.precio} onChange={handleChange} required />
             <br />
             <select className='form-control' name='frecuencia' value={claseSeleccionada && claseSeleccionada.frecuencia} onChange={handleChange} required>
               <option value="Frecuencia">Frecuencia</option>

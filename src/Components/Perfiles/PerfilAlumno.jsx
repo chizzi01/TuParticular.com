@@ -30,7 +30,6 @@ class PerfilAlumno extends React.Component {
     }
 
 
-
     changeFechaDeNacimiento = (event) => {
         this.setState({ fechadenacimiento: event.target.value})
     }
@@ -85,10 +84,11 @@ class PerfilAlumno extends React.Component {
             headers: { "x-auth-token": localStorage.getItem('token') }
         })
             .then(res => {
+                console.log(res.data);
                 this.setState({
                     nombre: res.data.nombre,
                     apellido: res.data.apellido,
-                    fechadenacimiento: res.data.fechadenacimiento,
+                    fechadenacimiento: new Date(res.data.fechadenacimiento).toISOString().slice(0, 10),
                     estudios: res.data.estudios,
                     nivel: res.data.nivel
                 })
@@ -97,9 +97,6 @@ class PerfilAlumno extends React.Component {
                 }
             })
     }
-
-
-
 
 
     render() {

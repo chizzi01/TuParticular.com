@@ -6,6 +6,8 @@ const Profesor = require('../Models/profesor');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const { check, validationResult } = require("express-validator");
+const nodemailer = require('nodemailer');
+const auth = require('../backend/middleware/auth');
 
 router.post('/', [
     check('nombre', 'El nombre es requerido').not().isEmpty(),
@@ -37,10 +39,6 @@ router.post('/', [
             });
             await alumno.save().then(result => {
                 console.log(result);
-                res.status(201).json({
-                    message: 'Alumno creado',
-                    alumno: result
-                });
             }).catch(err => {
                 console.log(err);
                 res.status(500).json({
@@ -58,10 +56,6 @@ router.post('/', [
             });
             await profesor.save().then(result => {
                 console.log(result);
-                res.status(201).json({
-                    message: 'Profesor creado',
-                    profesor: result
-                });
             }).catch(err => {
                 console.log(err);
                 res.status(500).json({
@@ -112,5 +106,111 @@ router.post('/', [
     }
 
 });
+
+
+router.post('/sendAuth', async (req, res) => {
+    try {
+        const usuario = await Usuario.findOne({ email: req .body.email });
+        if (!usuario) {
+            return res.status(400).json({ errors: [{ msg: "El mail es incorrecto" }] });
+        }
+        const hash = getHash();
+        sendMail(req.body.email, hash);
+        usuario.authHash = hash;
+        usuario.save();
+        res.status(200).json({
+            message: 'Mail enviado',
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            error: error
+        });
+    }
+});
+
+function getHash(){
+    letras = "abcdefghijkmnpqrtuvwxyzABCDEFGHJKMNPQRTUVWXYZ2346789";
+    clave = "";
+    for (i=0; i<8; i++) clave += letras.charAt(Math.floor(Math.random()*letras.length));
+    return clave;
+}
+
+function sendMail(email, hash){
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
+        }
+    });
+
+    var mailOptions = {
+        from: 'TuParticular.com',
+        to: email,
+        subject: 'Verificacion de cuenta',
+        text: 'Su codigo de verificacion es: ' + hash
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+}
+
+
+
+router.post('/verifyAuth', async (req, res) => {
+    try {
+        const usuario = await Usuario.findOne({ email: req.body.email });
+        const hash = req.body.hash;
+        if (usuario.authHash != hash) {
+            return res.status(400).json({ errors: [{ msg: "El codigo es incorrecto" }] });
+        }
+        usuario.authHash = null;
+        usuario.save();
+        res.status(200).json({
+            message: 'Codigo correcto',
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            error: error
+        });
+    }
+});
+
+router.post('/changePassword',[
+    check('newPassword', 'El password es invalido').isLength({ min: 6 }),
+    check('email', 'El email es invalido').isEmail(),
+], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+    try {
+        const usuario = await Usuario.findOne({ email: req.body.email });
+        const newPassword = req.body.newPassword;
+        const saltpassword = bcrypt.genSaltSync(10);
+        const hashpassword = bcrypt.hashSync(newPassword, saltpassword);
+        usuario.password = hashpassword;
+        usuario.save();
+        res.status(200).json({
+            message: 'Password cambiado',
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            error: error
+        });
+    }
+});
+
+
+
+
 
 module.exports = router;

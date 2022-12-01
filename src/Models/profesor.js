@@ -5,12 +5,8 @@ const ProfesorSchema = new Schema({
     titulo: String,
     experiencia: String,
     clases: [{
-        nombre: String,
-        descripcion: String,
-        precio: Number,
-        duracion: Number,
-        foto: String,
-        estado: String
+        type: Schema.Types.ObjectId,
+        ref: 'Clase'
     }]
 });
 
