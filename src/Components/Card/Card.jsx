@@ -25,8 +25,6 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const costo = 1000;
-
 export default function CardClases() {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -47,24 +45,28 @@ export default function CardClases() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Matematica"
-        subheader="Semanal"
+        title={titulo}
+        subheader={frecuencia}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Descripción: {descripcion}
         </Typography>
         <br />
         <Typography variant="body2" color="text.secondary">
-          Profesor: Juan Perez
+          Profesor: {profesor}
         </Typography>
         <br />
         <Typography variant="body2" color="text.secondary">
-          Duración: 1 hora
+          Duración: {duracion}
         </Typography>
         <br />
         <Typography variant="body2" color="text.secondary">
           Costo: ${costo}
+        </Typography>
+        <br />
+        <Typography variant="body2" color="text.secondary">
+          Tipo: {tipo}
         </Typography>
         <br />
         <div className='contratar-button'>

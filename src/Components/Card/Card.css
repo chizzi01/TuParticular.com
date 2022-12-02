@@ -18,3 +18,9 @@ width: 100%;
 border: gray 1px solid;
 border-radius: 6px;
 }
+
+#enviarComentario{
+    margin-top: 10px;
+    padding: 4px 3px 4px 3px;
+    font-size: 15px;
+}

@@ -42,7 +42,7 @@ function MisClasesProfesor() {
   }
 
   const editar = () => {
-    axios.put('http://localhost:3900/api/clases/' + claseSeleccionada.id, claseSeleccionada,{
+    axios.put('http://localhost:3900/api/clases/update/' + claseSeleccionada.id, claseSeleccionada,{
       headers: { "x-auth-token": localStorage.getItem('token') }
     }).then(res => {
     data.map(clase => {

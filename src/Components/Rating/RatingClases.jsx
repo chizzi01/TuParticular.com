@@ -7,7 +7,7 @@ import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
-import axios from 'axios';
+import clase from '../../Models/clase';
 
 const StyledRating = styled(Rating)(({ theme }) => ({
   '& .MuiRating-iconEmpty .MuiSvgIcon-root': {
@@ -48,34 +48,14 @@ IconContainer.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-export default function RatingCard(claseData) {
-
-  const rate = (value) => {
-    if ( !value || !claseData ){
-      return;
-    }
-    axios.put(`http://localhost:3900/api/clases/calificar/${claseData.claseData.claseData._id}`, { calificacion: value }, {
-      headers: { "x-auth-token": localStorage.getItem('token') },
-    }
-    )
-      .then(res => {
-        console.log(res.data);
-        alert('Gracias por calificar');
-      }).catch(err => {
-        console.log(err);
-        alert(err.response.data.msg);
-      })
-  }
-
-
+export default function RatingClases(claseData) {
   return (
     <StyledRating
       name="highlight-selected-only"
-      defaultValue={0}
-      IconContainerComponent={IconContainer}
-      getLabelText={(value) => customIcons[value].label}
+      value={claseData.claseData.rating / claseData.claseData.calificadores.length}
       highlightSelectedOnly
-      onClick={(evt) => rate(evt.target.value)}
+      IconContainerComponent={IconContainer}
+      readOnly
     />
   );
 }

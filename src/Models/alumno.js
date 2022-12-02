@@ -7,12 +7,8 @@ const AlumnoSchema = new Schema({
     nivel: String,
     estudiosfinalizados: Boolean,
     clases: [{
-        nombre: String,
-        descripcion: String,
-        precio: Number,
-        duracion: Number,
-        foto: String,
-        estado: String
+        type: Schema.Types.ObjectId,
+        ref: 'Clase'
     }]
 });
 

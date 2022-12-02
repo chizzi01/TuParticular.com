@@ -17,6 +17,8 @@ export default function DialogSelect() {
   const [cla, setClase] = React.useState('');
   const [fre, setFrecuencia] = React.useState('');
   const [rat, setRating] = React.useState('');
+  const [inputText, setInputText] = useState("");
+  const {onSearch} = props;
 
   const handleChangeCla = (event) => {
     setClase(Number(event.target.value) || '');
@@ -41,9 +43,27 @@ export default function DialogSelect() {
     }
   };
 
+  const handleInput = (event) => {
+    const text = event.target.value;
+    setSearchText(text);
+  };
+
+  const handleEnterKeyPressed = (event) => {
+    if (event.key === 'Enter') {
+      onSearch(searchText);
+    }
+  };
+
+  let inputHandler = (e) => {
+    //convert input text to lower case
+    var lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
+
+
   return (
     <div>
-        <input className='text-input' type="text" placeholder='Materia'/>
+      <input className='text-input' type="text" placeholder='Materia' onChange={inputHandler} onKeyPress={handleEnterKeyPressed} value={searchText} />
       <Button onClick={handleClickOpen}>Filtrar por</Button>
       <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
         <DialogTitle>Filtros</DialogTitle>

@@ -149,7 +149,7 @@ function sendMail(email, hash){
         from: 'TuParticular.com',
         to: email,
         subject: 'Verificacion de cuenta',
-        text: 'Su codigo de verificacion es: ' + hash
+        html: '<h1>Verificacion de cuenta</h1><h2>Tu codigo de verificacion es:</h2><strong> ' + hash + ' </strong>'
     };
 
     transporter.sendMail(mailOptions, function(error, info){
