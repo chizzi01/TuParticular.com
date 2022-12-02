@@ -136,7 +136,7 @@ function Searchbar(handleChange) {
   const handleChangeCla = (event) => {
     setClase(String(event.target.value) || '');
     handleChange.handleChange({
-      tipoFilter: event.target.value, 
+      tipoFilter: event.target.value,
       frecuenciaFilter: fre || "",
       ratingFilter: rat || "",
       textFilter: inputText || ""
@@ -146,7 +146,7 @@ function Searchbar(handleChange) {
   const handleChangeFre = (event) => {
     setFrecuencia(String(event.target.value) || '');
     handleChange.handleChange({
-      tipoFilter: cla || "", 
+      tipoFilter: cla || "",
       frecuenciaFilter: event.target.value,
       ratingFilter: rat || "",
       textFilter: inputText || ""
@@ -156,13 +156,22 @@ function Searchbar(handleChange) {
   const handleChangeRat = (event) => {
     setRating(String(event.target.value) || '');
     handleChange.handleChange({
-      tipoFilter: cla || "", 
+      tipoFilter: cla || "",
       frecuenciaFilter: fre || "",
       ratingFilter: event.target.value,
       textFilter: inputText || ""
     })
   };
 
+  const handleChangeText = (event) => {
+    setInputText(String(event.target.value) || '');
+    handleChange.handleChange({
+      tipoFilter: cla || "",
+      frecuenciaFilter: fre || "",
+      ratingFilter: rat || "",
+      textFilter: event.target.value
+    })
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -171,6 +180,16 @@ function Searchbar(handleChange) {
   const handleClose = (event, reason) => {
     if (reason !== 'backdropClick') {
       setOpen(false);
+      setRating('');
+      setFrecuencia('');
+      setClase('');
+      handleChange.handleChange({
+        tipoFilter: "",
+        frecuenciaFilter: "",
+        ratingFilter: "",
+        textFilter: inputText || ""
+      }
+      )
     }
   };
 
@@ -178,12 +197,7 @@ function Searchbar(handleChange) {
 
   return (
     <div>
-      <input className='text-input' id='filtroMateria' type="text" placeholder='Materia' onChange={(event) => handleChange.handleChange({
-        textFilter: event.target.value,
-        tipoFilter: cla || "",
-        frecuenciaFilter: fre || "",
-        ratingFilter: rat || ""
-      })} />
+      <input className='text-input' id='filtroMateria' type="text" placeholder='Materia' onChange={handleChangeText} />
       <Button onClick={handleClickOpen}>Filtrar por</Button>
       <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
         <DialogTitle>Filtros</DialogTitle>
@@ -287,7 +301,7 @@ class Clases extends React.Component {
         const textFilter = (event.textFilter.toLowerCase() !== "" ? event.textFilter.toLowerCase() : clase.nombre.toLowerCase());
         const tipoFilter = (event.tipoFilter.toLowerCase() !== "" ? event.tipoFilter.toLowerCase() : clase.tipo.toLowerCase())
         const frecuenciaFilter = (event.frecuenciaFilter.toLowerCase() !== "" ? event.frecuenciaFilter.toLowerCase() : clase.frecuencia.toLowerCase())
-        const ratingFilter = (event.ratingFilter !== "" ? event.ratingFilter : (clase.rating ? Math.floor(clase.rating/clase.calificadores.length) : 1))
+        const ratingFilter = (event.ratingFilter !== "" ? event.ratingFilter : (clase.rating ? Math.floor(clase.rating / clase.calificadores.length) : 1))
         console.log(Math.floor(clase.rating / clase.calificadores.length));
         return clase.nombre.toLowerCase().includes(textFilter) &&
           clase.tipo.toLowerCase() == (tipoFilter) &&
@@ -297,7 +311,7 @@ class Clases extends React.Component {
     }
     this.setState(newData);
   }
-//breakpoint
+  //breakpoint
   render() {
     return (
       <div className="Clases">
